@@ -1,0 +1,70 @@
+---
+//import { ViewTransitions, fade } from "astro:transitions";
+
+
+import BaseHead from '../components/BaseHead.astro';
+import Footer from './footer/index.astro';
+import Navbar from "./navbar/index.astro";
+import Sidebar from "./sidebar/index.astro";
+import {ChevronRight} from 'lucide-react'
+import {ScrollArea} from "@wds-ui/scroll-area";
+//import Faq from "../components/faq";
+import Pagination from "../components/pagination";
+import { Separator } from "@wds-ui/separator"
+//import DocumentHeadings from "../components/document-headings";
+
+import CustomTheme from '../components/custom-theme';
+
+//const { title = 'title', description='description', pubDate, updatedDate, heroImage } = Astro.props;
+const { frontmatter, headings } = Astro.props;
+
+const path = frontmatter?.path?.split('/').filter(Boolean) || [];
+const nav_1 = path[0] || frontmatter?.title || '';
+const nav_2 = path[1] || '';
+
+
+console.log({ headings})	
+
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead image="/og/home.png"  title={frontmatter.title} description={frontmatter.description} />
+		<!-- <ViewTransitions /> -->
+	</head>
+
+	<!-- <body class=" min-h-screen "   transition:animate={fade({ duration: "0.4s" })}> -->
+	
+		<body class=" min-h-screen scroll-smooth relative"   >
+			<Navbar path={frontmatter.path}/>
+		<div class=" fixed bottom-0 w-screen h-[calc(100vh-50px)]">
+			<div class="grid grid-cols-12 container p-0">
+		
+			<Sidebar path={frontmatter.path}/>
+			<main class="prose lg:col-span-9 xl:col-span-7 lg:px-[10px]   relative max-w-none  col-span-12 h-[100vh] overflow-hidden animate-in fade-in duration-500" >
+				<div class="flex items-center py-4 px-2  space-x-1 text-sm text-foreground">
+					<div class="overflow-hidden  capitalize whitespace-nowrap ">{nav_1}</div>
+					<ChevronRight size={16} />
+					<div class="overflow-hidden text-foreground  whitespace-nowrap capitalize">{nav_2}</div>
+				</div>
+				<ScrollArea client:idle className='h-[99%] pb-20 md:px-4  w-full'>
+                    <div class="w-[99vw] md:w-full px-[2px] md:px-2 m-auto py-8 md:py-0  h-full">	<slot /></div>
+			
+				<Separator />
+				<Pagination client:idle/>
+				<!-- <Faq client:idle/> -->
+				<CustomTheme client:idle />
+
+				<Footer/>
+			</ScrollArea>
+			
+			</main>
+			<!-- <DocumentHeadings client:only headings={headings} path={frontmatter.path} /> -->
+		</div>
+		</div>
+
+	
+	</body>
+</html>
+
+

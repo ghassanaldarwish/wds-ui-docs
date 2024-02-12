@@ -1,0 +1,55 @@
+---
+
+import { Github, Linkedin, Facebook ,Heart} from "lucide-react";
+import {cn} from "@wds-utils/cn"
+import { buttonVariants} from "@wds-ui/button"
+const today = new Date();
+---
+
+<footer class="container flex flex-col gap-4 p-8  my-14 col-span-12 animate-in fade-in duration-500">
+	<div>&copy; {today.getFullYear()} Web Drei Scene. </div>
+
+
+
+
+	<div class="flex gap-4">
+		<a title="Linkedin" id="Linkedin"  target="_blank" href="https://www.linkedin.com/in/ghassan-aldarwish-029682172" class={cn(buttonVariants({variant:'outline', size:'icon'}),"cursor-pointer")}>
+			<Linkedin size={20} />
+		  </a>
+		  <a
+		  target="_blank"
+		  href="https://github.com/Ghassanooooo/wds"
+		  id="github"
+		  title="Github" 
+		  class={cn(buttonVariants({variant:'outline', size:'icon'}))}>
+			<Github size={20} />
+		  </a>
+		  <a 
+
+		  id="npm"
+         title="npm"
+
+		  target="_blank"
+href="https://www.npmjs.com/search?q=wds-ui"
+		  class={cn(buttonVariants({variant:'outline', size:'icon'}))}>
+			<svg
+						  xmlns="http://www.w3.org/2000/svg"
+						  viewBox="0 0 48 48"
+						  width="20px"
+						  height="20px"
+						>
+						  <path fill="#d50000" d="M0,15h48v17H24v3H13v-3H0V15z" />
+						  <path
+							fill="#fff"
+							d="M3 29L8 29 8 21 11 21 11 29 13 29 13 18 3 18zM16 18v14h5v-3h5V18H16zM24 26h-3v-5h3V26zM29 18L29 29 34 29 34 21 37 21 37 29 40 29 40 21 43 21 43 29 45 29 45 18z"
+						  />
+						</svg>
+		  </a>
+		  <!-- <a id="Facebook"  title="Facebook"  target="_blank" href="https://www.facebook.com/webdrei3" class={cn(buttonVariants({variant:'outline', size:'icon'}),"cursor-pointer")}>
+			<Facebook size={20} />
+		  </a> -->
+		  <div class={cn(buttonVariants({variant:'outline', size:'icon'}),"opacity-30 cursor-not-allowed hidden lg:flex ")}>
+			<Heart size={20} className="fill-red-500 "/>
+		  </div>
+	</div>
+</footer>

@@ -1,0 +1,89 @@
+---
+layout: ../layouts/index.astro
+title: "Introduction"
+path: "/introduction"
+description: "What is @wds-ui?"
+image:
+  url: "https://docs.astro.build/assets/full-logo-light.png"
+  alt: "The Astro logo with the word One."
+tags: ["astro", "blogging", "learning in public"]
+---
+
+# Introduction to @wds-ui
+
+  <section href="/"  class="  font-[900] flex bg-white text-black  my-6 whitespace-nowrap text-5xl md:text-8xl  justify-center aspect-[16/9] items-centercursor-pointer w-[97%] border">
+    <img id="logo-image" src="/logo.png" class='rounded-md w-16 h-16 md:w-40 md:h-40' alt="@wds-ui logo" width="34" height="34"/>
+
+   <p className="flex items-center">@wds-ui</p> 
+  </section>
+
+## What is @wds-ui?
+
+`@wds-ui` is a meticulously crafted React component library that leverages the robustness of [Radix UI](https://www.radix-ui.com/) and the styling power of [Tailwind CSS](https://tailwindcss.com/). It is designed to help developers build not only beautiful but also fully accessible user interfaces with ease.
+
+The primary goal of `@wds-ui` is to enhance the development workflow by providing a suite of reusable components. These components adhere to a unified system design, promoting consistency and a seamless user experience across applications.
+
+## Features
+
+- **Accessibility at Forefront**: Every component in `@wds-ui` is built with accessibility in mind, ensuring that your applications are usable by everyone.
+- **Ready-to-Use Components**: `@wds-ui` comes with a wide range of components (such as Buttons, Cards, Dialogs, and more) that are ready to be integrated into your project straight out of the box.
+- **Customizable Design**: Tailored with Tailwind CSS, `@wds-ui` components can be easily customized to match your brand's design language.
+- **Radix UI Foundation**: Utilizing Radix UI primitives ensures a solid, low-level structure of the components, granting you the freedom to extend and modify them as needed.
+- **Streamlined Development**: Spend less time worrying about UI consistency and more time on what matters most—creating unique user experiences.
+
+## Getting Started
+
+> Before proceeding, please ensure that you have set up and installed all necessary dependencies.
+> If you haven't done so yet, you can find detailed [installation instructions](/installation) here.
+
+To start using `@wds-ui`, simply install the package via npm, yarn, or pnpm:
+
+**npm:**
+
+```bash
+npm install @wds-ui/button
+```
+
+**yarn:**
+
+```bash
+yarn add @wds-ui/button
+```
+
+**pnpm:**
+
+```bash
+pnpm add @wds-ui/button
+```
+
+**App.jsx**
+
+```jsx
+import { Button } from "@wds-ui/react";
+
+const App = () => {
+  return <Button>Click me</Button>;
+};
+
+export default App;
+```
+
+## Component List
+
+`@wds-ui` offers a comprehensive set of components to cover various UI needs:
+
+- **Layout**: Grids, Stacks, and Separators to structure your content.
+- **Navigation**: Menubars, Tabs, and Navigation Menus for easy movement around the application.
+- **Inputs**: Buttons, Toggles, Selects, and Forms to capture user actions and inputs.
+- **Feedback**: Alerts, Toasts, and Progress indicators to communicate with your users.
+- **Overlays**: Dialogs, Popovers, and Tooltips to overlay additional information.
+- **Data Display**: Tables, Cards, and Lists to present your data elegantly.
+- **Utilities**: Accordions, Sliders, and more for additional functionality.
+
+Each component is documented with examples and code snippets to help you integrate them quickly into your projects.
+
+## Contribution
+
+`@wds-ui` is an open-source project, and contributions are welcome! Whether you're fixing a bug, improving the documentation, or proposing a new feature, your input is valuable. Check out our [GitHub repository](https://github.com/Ghassanooooo/wds) to get started.
+
+Thank you for choosing `@wds-ui` for your UI component needs. Together, let's build beautiful, functional, and accessible web applications.

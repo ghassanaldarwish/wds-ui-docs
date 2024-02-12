@@ -1,0 +1,57 @@
+---
+
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../layouts/footer/index.astro';
+import Navbar from "../layouts/navbar/index.astro";
+import {Cog} from "lucide-react";
+import CustomTheme from '../components/custom-theme';
+
+const title = "Theme Customization";
+const description = "Customize your theme colors";
+const image = "/og/home.png";
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead image={image} title={title} description={description} />
+	 </head>	
+		<body class="relative">
+		<Navbar path="/" />
+		
+	     <main class=" mt-[50px] flex flex-col   relative  min-h-[100vh] animate-in fade-in duration-500" >
+            <header class="p-4   container gap-4  mb-4 ">
+                <div class=" flex flex-col justify-center gap-2 items-center">
+                  <h1 class="font-heading font-[900] text-2xl sm:text-3xl md:text-4xl ">
+                      Theme Customization
+                  </h1>
+                  <p class="max-w-[42rem] leading-normal  sm:text-xl sm:leading-8">
+                      Customize your theme colors         
+                 </p>
+        
+                </div>
+                  </header>
+                <div class="max-w-none prose prose-a:text-primary">
+                  <div class=" container  gap-2 items-center flex justify-center text-2xl">
+                    Coming Soon <Cog className='animate-spin'/>
+                
+                </div>
+               
+
+                 </div>
+                 <slot/>
+	      </main>
+        <CustomTheme client:idle />
+          <Footer path="/"/>
+	
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+./footer/index.astro./navbar/index.astro

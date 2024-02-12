@@ -1,0 +1,57 @@
+---
+import sidebar from "@/src/config/sidebar";
+import {ScrollArea} from "@wds-ui/scroll-area";
+import {cn} from "@wds-utils/cn";
+
+const { path } = Astro.props;
+
+const isProd = import.meta.env.NODE_ENV === "production"
+const isDev = !isProd
+---
+
+<aside  class="hidden lg:block col-span-3 px-8 pt-4 h-[calc(100vh-50px)] relative border-r animate-in fade-in duration-300">
+    <ScrollArea client:idle className='h-full absolute bottom-0 '>
+    {sidebar.map((group:any)=>{
+      const Component = group?.icon ? group?.icon : null
+
+        return (
+           
+
+                <h3 class={cn("font-bold flex gap-2  items-center mb-4 capitalize text-xl",{"hidden":group?.disabled})}>{Component && <Component  />}{
+                
+                 group.name
+                
+                }</h3>
+                <ul class="mb-6">
+                    {group.lists.map((list:any)=>{
+                      const Component = list?.icon ? list?.icon : null
+                        return (
+                        <li class={cn("mb-2 flex gap-2  items-center ",{"hidden":  list?.disabled})}>
+                          {Component && <span class={cn('fill-foreground',{"fill-primary text-primary":path === list.path})}><Component  /></span> }
+                          <a  data-path={isDev ? list.path : list.path+'/'}
+                           class={cn("hover:underline opacity-70 capitalize",{'font-bold opacity-90':path === list.path})}
+                            href={list.path}>{list.name}</a>               
+                         </li>
+                        )
+                    })}
+                </ul>
+                
+         
+        )
+    })}
+     </ScrollArea>
+</aside>
+
+<script is:inline>
+    const path = window.location.pathname;
+    const links = document.querySelectorAll('a[data-path]');
+
+  
+    links.forEach(link => {
+      if (link.getAttribute('data-path') === path) {
+        link.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+
+

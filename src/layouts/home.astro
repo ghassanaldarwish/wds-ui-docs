@@ -1,0 +1,92 @@
+---
+//import { ViewTransitions, fade } from "astro:transitions";
+
+import BaseHead from '../components/BaseHead.astro';
+//import ComponentsGrid from '../components/home/components-grid';
+//import ComponentsGrid01 from '../components/home/components-grid-01';
+import ComponentsFeatures from '../components/home/components-features';
+import ComponentPresence from '../components/home/component-presence';
+import CustomTheme from '../components/custom-theme';
+import Footer from '../layouts/footer/index.astro';
+import Navbar from "../layouts/navbar/index.astro";
+import { Github} from "lucide-react";
+
+import { buttonVariants } from "@wds-ui/button";
+import { cn } from "@wds-utils/cn";
+
+
+
+// function fillArray(leg:number){
+//   let arr = [];
+//   for(let i=0; i<leg; i++){
+//     arr.push(i);
+//   }
+//   return arr;
+// }
+
+
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead image="/og/home.png" title={'@wds-ui'} description={'Modern React.js Components'} />
+		<!-- <ViewTransitions /> -->
+	</head>
+
+	<!-- <body class=" min-h-screen "   transition:animate={fade({ duration: "0.4s" })}> -->
+	
+		<body class="relative">
+			<Navbar path="/"/>
+		
+	<main class=" mt-[50px] flex flex-col   relative  min-h-[100vh] animate-in fade-in duration-500 " >
+	
+        <header class="p-4 md:py-16 flex flex-col container gap-4  mb-4  xl:flex-row">
+          <div class=" flex flex-col justify-center gap-8">
+            <h1 class="font-heading font-[900] text-3xl sm:text-5xl md:text-6xl ">
+            Modern React.js Components
+            </h1>
+            <p class="max-w-[42rem] leading-normal  sm:text-xl sm:leading-8">
+              Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.
+            </p>
+            <div class="space-x-4 flex gap-4 ">
+              <a href="/introduction" class={cn(buttonVariants())}>
+                Getting Started
+              </a>
+
+			  <a   
+			  title="Github profile" 
+			  target="_blank"
+			  href="https://github.com/Ghassanooooo/wds" 
+			  class={cn(buttonVariants({variant:'secondary'}),'flex gap-2')}>
+                Github  <Github  />
+              </a>
+            </div>
+          </div>
+		  <ComponentPresence client:idle/>
+        </header>
+		<ComponentsFeatures client:idle/>
+		<!-- <ComponentsGrid01 client:idle/> -->
+		<div class="max-w-none prose prose-a:text-primary ">
+			<div class=" container ">
+			
+			<slot />
+		</div>
+	
+		</div>
+
+		<CustomTheme client:idle />
+
+       <!-- <ComponentsGrid client:idle/> -->
+			</main>
+		
+            <Footer path="/"/>
+	
+	</body>
+</html>
+
+
+
+
+
+
+./footer/index.astro./navbar/index.astro

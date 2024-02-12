@@ -1,0 +1,104 @@
+---
+import {ThemeToggle} from "@wds-ui/theme-toggle"
+import {cn} from "@wds-utils/cn"
+import { buttonVariants} from "@wds-ui/button"
+import { Github, Linkedin, Facebook, Heart, Rocket, Atom } from "lucide-react";
+import packageJson from "../../../package.json";
+import { Badge } from "@wds-ui/badge"
+
+
+
+const version = packageJson.version
+
+import navbar from "@/src/config/navbar";
+
+import Menu from "../../components/menu"
+import Search from "../../components/search";
+const { path } = Astro.props;
+import { Image } from 'astro:assets';
+const isProd = import.meta.env.NODE_ENV === "production"
+const isDev = !isProd
+---
+
+<nav class="rounded-none bg-background  border-b  fixed w-screen top-0 left-0 z-20 h-[50px] animate-in fade-in duration-200">
+<div class= " flex px-2 md:px-8  items-center justify-between h-full w-full container">
+
+<div class="flex gap-2  items-center">
+  
+  <!-- <a href="/"  class="flex items-center font-bold whitespace-nowrap text-lg md:text-2xl  cursor-pointer">
+    <Rocket size={34} className="fill-red-500 mr-2"/>
+    <Atom size={10} className="fill-red-500 mr-2"/>
+  </a>   -->
+
+
+
+  <a href="/"  class="font-bold flex whitespace-nowrap text-3xl  cursor-pointer">
+    <!-- <Image id="logo-image" src="/logo-light.png" class='rounded-md  dark:!hidden' alt="@wds-ui logo" width="34" height="34"/> -->
+
+   @wds-ui
+  </a>
+  <Badge className="px-2 hidden md:block text-sm">{version}</Badge>
+  <div class="hidden xl:block ">
+    {navbar.map((item,i)=>{
+      if (item.disabled) return   <div class={cn(buttonVariants({variant:"link"}),'hidden text-foreground hover:no-underline cursor-not-allowed opacity-20 capitalize')}>{item.name}</div>
+
+
+   return   <a id={item.name +'-'+i} title={item.name} href={item.path} class={cn(buttonVariants({variant:"link"}),'text-foreground text-md cursor-pointer opacity-70 capitalize',{'font-[900] opacity-90':path === item.path})}>{item.name}</a>
+
+    })}
+  </div>
+ 
+</div>
+
+<div class="flex gap-6 last:gap-2 items-center">
+ 
+
+
+  <a title="Linkedin-profile" id="Linkedin profile"  target="_blank" href="https://www.linkedin.com/in/ghassan-aldarwish-029682172" class={cn(buttonVariants({variant:'outline', size:'icon'}),"cursor-pointer hidden lg:flex ")}>
+    <Linkedin size={20} />
+  </a>
+
+  <!-- <a id="Facebook-profile"  title="Facebook profile" target="_blank" href="https://www.facebook.com/webdrei3" class={cn(buttonVariants({variant:'outline', size:'icon'}),"cursor-pointer hidden lg:flex ")}>
+    <Facebook size={20} />
+  </a> -->
+  <ThemeToggle client:idle />
+
+  <Search client:idle />
+
+  <div class={cn(buttonVariants({variant:'outline', size:'icon'}),"opacity-30 cursor-not-allowed hidden lg:flex ")}>
+    <Heart size={20} className="fill-red-500 "/>
+  </div>
+
+  <a
+  id="github-profile"
+  title="Github profile" 
+  target="_blank"
+  href="https://github.com/Ghassanooooo/wds"
+  class={cn(buttonVariants({variant:'outline', size:'icon'}),"hidden lg:flex ")}>
+  <Github size={20} />
+</a>
+<a
+target="_blank"
+href="https://www.npmjs.com/search?q=wds-ui"
+id="npm-profile"
+title="npm profile"
+ class={cn(buttonVariants({variant:'outline', size:'icon'})," hidden lg:flex ")}>
+  <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 48 48"
+                width="20px"
+                height="20px"
+              >
+                <path fill="#d50000" d="M0,15h48v17H24v3H13v-3H0V15z" />
+                <path
+                  fill="#fff"
+                  d="M3 29L8 29 8 21 11 21 11 29 13 29 13 18 3 18zM16 18v14h5v-3h5V18H16zM24 26h-3v-5h3V26zM29 18L29 29 34 29 34 21 37 21 37 29 40 29 40 21 43 21 43 29 45 29 45 18z"
+                />
+              </svg>
+</a>
+
+
+<Menu client:idle/>
+</div>
+</div>
+</nav>
