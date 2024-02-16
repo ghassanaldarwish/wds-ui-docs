@@ -17,12 +17,12 @@ const isDev = !isProd
         return (
            
 
-                <h3 class={cn("font-bold flex gap-2  items-center mb-4 capitalize text-xl",{"hidden":group?.disabled})}>{Component && <Component  />}{
+                <h3 class={cn("font-bold flex gap-2  items-center mb-4 capitalize text-xl ",{"hidden":group?.disabled})}>{Component && <Component  />}{
                 
                  group.name
                 
                 }</h3>
-                <ul class="mb-6">
+                <ul class="mb-6 ">
                     {group.lists.map((list:any)=>{
                       const Component = list?.icon ? list?.icon : null
                         return (

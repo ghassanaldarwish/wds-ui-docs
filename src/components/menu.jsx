@@ -34,14 +34,14 @@ export default function Menu() {
       <SheetContent>
         <aside className=" h-full relative animate-in fade-in duration-300">
           <div className="flex gap-2 mb-2">
-            <div
+            {/* <div
               class={cn(
                 buttonVariants({ variant: "outline", size: "icon" }),
                 "opacity-30 cursor-not-allowed hidden lg:flex "
               )}
             >
               <Heart size={20} className="fill-red-500 " />
-            </div>
+            </div> */}
             <a
               target="_blank"
               href="https://www.linkedin.com/in/ghassan-aldarwish-029682172"
@@ -63,7 +63,7 @@ export default function Menu() {
               <Facebook size={20} />
             </a> */}
 
-            <a
+            {/* <a
               target="_blank"
               href="https://github.com/Ghassanooooo/wds"
               class={cn(buttonVariants({ variant: "outline", size: "icon" }))}
@@ -88,7 +88,7 @@ export default function Menu() {
                 />
               </svg>
             </a>
-            <Search className="pl-4" />
+            <Search className="pl-4" /> */}
           </div>
           <ScrollArea className="h-full w-full absolute bottom-0 ">
             {sidebar.map((group, index) => {

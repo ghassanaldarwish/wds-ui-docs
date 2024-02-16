@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-  app-wds-ui-docs:
+  wds-ui-docs:
     build:
       context: .
       dockerfile: Dockerfile.dev
@@ -13,12 +13,16 @@ services:
       - CHOKIDAR_USEPOLLING=true
       - WDS_SOCKET_PORT=0
       - NODE_ENV=production
+    volumes:
+      - ./public:/app/public
+      - ./src:/app/src
+
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.app-wds-ui-docs.rule=Host(`wds.ui.localhost`)"
-      - "traefik.http.services.app-wds-ui-docs.loadbalancer.server.port=80"
-    env_file:
-      - ../../environment/.env.local
+      - "traefik.http.routers.wds-ui-docs.rule=Host(`wds.ui.localhost`)"
+      - "traefik.http.services.wds-ui-docs.loadbalancer.server.port=3000"
+    # env_file:
+    #   - ../../environment/.env.local
 networks:
   app-workspace-network:
     name: app-workspace-network

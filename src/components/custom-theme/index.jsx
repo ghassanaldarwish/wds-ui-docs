@@ -41,7 +41,7 @@ function CustomTheme() {
 
   console.log(theme);
 
-  return (
+  return false ? (
     <div className="z-10 animate-in zoom-in duration-500 flex absolute top-[10px] right-[10px] md:right-[12px]  flex-col gap-2">
       <Popover>
         <PopoverTrigger asChild>
@@ -118,6 +118,6 @@ function CustomTheme() {
         </PopoverContent>
       </Popover>
     </div>
-  );
+  ) : null;
 }
 export default CustomTheme;
