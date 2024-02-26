@@ -18,8 +18,8 @@ services:
       - "traefik.http.routers.wds-ui-docs.tls.certresolver=letsencrypt"
       - traefik.http.routers.wds-ui-docs.tls=true
       - "traefik.http.services.wds-ui-docs.loadbalancer.server.port=80"
-    env_file:
-      - ./.env.local
+    # env_file:
+    #   - ./.env.local
 
 networks:
   app-workspace-network:
