@@ -42,18 +42,6 @@
         force: yes
       when: git_repo.stat.exists
 
-    # - name: Check if the .env.local file exists
-    #   ansible.builtin.stat:
-    #     path: "{{ destination }}/{{ project_name }}/.env.local"
-    #   register: env_local_file
-
-    # - name: Create .env.local file if not exist
-    #   ansible.builtin.copy:
-    #     content: |
-    #       # Your .env.local file content here
-    #     dest: "{{ destination }}/{{ project_name }}/.env.local"
-    #  when: not env_local_file.stat.exists
-
     - name: Pull the latest images wds-ui-docs
       ansible.builtin.command:
         cmd: docker-compose -f "{{ destination }}/{{ project_name }}/docker-compose.yaml" pull
