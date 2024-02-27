@@ -19,7 +19,7 @@ services:
 
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.wds-ui-docs.rule=Host(`wds.ui.localhost`)"
+      - "traefik.http.routers.wds-ui-docs.rule=Host(`wds-ui.localhost`)"
       - "traefik.http.services.wds-ui-docs.loadbalancer.server.port=3000"
     # env_file:
     #   - ../../environment/.env.local
