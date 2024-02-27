@@ -9,7 +9,7 @@ Allow: /
 
 
 # Sitemaps
-Sitemap: https://wds.ui.webdrei.com/sitemap-0.xml
-Sitemap: https://wds.ui.webdrei.com/sitemap-index.xml
-Sitemap: https://wds.ui.webdrei.com/rss.xml
+Sitemap: https://ui.webdrei.com/sitemap-0.xml
+Sitemap: https://ui.webdrei.com/sitemap-index.xml
+Sitemap: https://ui.webdrei.com/rss.xml
 
