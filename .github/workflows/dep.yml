@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build the Docker image
-        run: docker build -t ghassanaldarwish/wds-ui-docs .
+        run: DOCKER_BUILDKIT=1 docker build -t ghassanaldarwish/wds-ui-docs .
 
       - name: Login Docker Hub
         run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
