@@ -9,6 +9,6 @@ services:
       - WDS_SOCKET_PORT=0
       - NODE_ENV=production
     ports:
-      - "3001:80"
+      - "8089:80"
     # env_file:
     #   - ./.env.local
