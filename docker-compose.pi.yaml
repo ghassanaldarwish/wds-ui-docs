@@ -1,5 +1,15 @@
 version: "3.8"
 services:
+  wds-ui-docs-nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx/prod
+    networks:
+      - wds-ui-docs-nginx-network
+    ports:
+      - "8089:80"
+
   wds-ui-docs:
     image: "ghassanaldarwish/wds-ui-docs"
     restart: on-failure
@@ -8,7 +18,12 @@ services:
       - CHOKIDAR_USEPOLLING=true
       - WDS_SOCKET_PORT=0
       - NODE_ENV=production
-    ports:
-      - "8089:80"
+    networks:
+      - wds-ui-docs-nginx-network
+
     # env_file:
     #   - ./.env.local
+
+networks:
+  wds-ui-docs-nginx-network:
+    name: wds-ui-docs-nginx-network
