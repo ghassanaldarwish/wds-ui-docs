@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  wds-ui-docs:
+    image: "ghassanaldarwish/wds-ui-docs"
+    restart: on-failure
+    environment:
+      - IS_DOCKER=true
+      - CHOKIDAR_USEPOLLING=true
+      - WDS_SOCKET_PORT=0
+      - NODE_ENV=production
+    ports:
+      - "3001:80"
+    # env_file:
+    #   - ./.env.local
