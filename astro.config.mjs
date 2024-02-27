@@ -6,7 +6,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://ui.webdrei.com",
+  site: "https://wds.ui.webdrei.com",
   server: {
     port: 3000,
     host: true,
