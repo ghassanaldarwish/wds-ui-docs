@@ -14,7 +14,7 @@ services:
       - NODE_ENV=production
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.wds-ui-docs-traefik-app.rule=Host(`wds-ui.wdsui.com`)"
+      - "traefik.http.routers.wds-ui-docs-traefik-app.rule=Host(`wds-ui.webdrei.com`)"
       - "traefik.http.routers.wds-ui-docs-traefik-app.entrypoints=websecure"
       - "traefik.http.routers.wds-ui-docs-traefik-app.tls.certresolver=letsencrypt"
       - traefik.http.routers.wds-ui-docs-traefik-app.tls=true
