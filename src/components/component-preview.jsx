@@ -83,7 +83,7 @@ export function ComponentPreview({
           <div
             ref={ref}
             className={cn(
-              "preview flex  min-h-96 w-full relative justify-center p-10  prose-img:m-0",
+              "preview flex not-prose min-h-96 w-full relative justify-center p-10  prose-img:m-0",
               {
                 "items-center": align === "center",
                 "items-start": align === "start",
